@@ -1,4 +1,151 @@
+WindowManager:
+    LoginScreen:
+    OrderScreen:
+
+<SimplePopup>:
+    id:pop
+    size_hint: .4, .4
+    auto_dismiss: False
+    title: 'Incorrect username or password'
+    Button:
+        text: 'Please enter valid user name and password'
+        on_press: pop.dismiss()
+
 <LoginScreen>:
-    rows: 3
-    cols: 2
+    name: "LogIn"
+    GridLayout:
+        rows: 2
+        GridLayout:
+            rows: 2
+            Label:
+                text: "Log In"
+            GridLayout:
+                cols: 3
+                Label:
+                    text: "Name: "
+                TextInput:
+                    id: username
+                    multiline: False
+                Label:
+                    text: " "
+                Label:
+                    text: "Password: "
+                TextInput:
+                    id: password
+                    multiline: False
+                    password: True
+                Label:
+                    text: " "
+
+        RelativeLayout:
+            Button:
+                text: "Submit"
+                size_hint_y: None
+                size_hint_x: None
+                height: 50
+                width: 75
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_press: root.login()
+
+
+<OrderScreen>:
+    name: "order"
+    GridLayout:
+        rows: 2
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            Label:
+                size_hint_x: None
+                pos_hint: {'left': 1}
+                text: "Tables"
+            Label:
+                text: "Coffee"
+            Label:
+                text: "Pastries"
+        GridLayout:
+            cols: 4
+            spacing: 20
+
+            GridLayout:
+                rows: 8
+                size_hint_x: None
+                width: 75
+                Button:
+                    text: "Table 1"
+                Button:
+                    text: "Table 2"
+                Button:
+                    text: "Table 3"
+                Button:
+                    text: "Table 4"
+
+                Button:
+                    text: "Table 5"
+                Button:
+                    text: "Table 6"
+                Button:
+                    text: "Table 7"
+                Button:
+                    text: "Table 8"
+
+            GridLayout:
+                cols: 2
+                rows: 8
+                spacing: 5
+                Button:
+                    text: "Espresso"
+                Button:
+                    text: "French Press"
+                Button:
+                    text: "Pour Over"
+                Button:
+                    text: "Drip"
+                Button:
+                    text: "Latte"
+                Button:
+                    text: "Americano"
+                Button:
+                    text: "Iced Coffee"
+                Button:
+                    text: "Cold Brew"
+
+            GridLayout:
+                cols: 2
+                rows: 8
+                spacing: 5
+                Button:
+                    text: "Blueberry\nMuffin"
+                Button:
+                    text: "Apple\nMuffin"
+                Button:
+                    text: "Banana\nMuffin"
+                Button:
+                    text: "Bagel"
+                Button:
+                    text: "Bagel w/\nCream Cheese"
+                Button:
+                    text: "Croissant"
+                Button:
+                    background_color: 0, 0, 0, 0
+                    text: ""
+                Button:
+                    background_color: 0, 0, 0, 0
+                    text: ""
+
+            BoxLayout:
+                orientation: "vertical"
+                TextInput:
+                    id: order
+                TextInput:
+                    id: total
+                    size_hint_y: None
+                    height: 50
+                Button:
+                    size_hint_y: None
+                    height: 35
+                    text: "Submit"
+
+
 
