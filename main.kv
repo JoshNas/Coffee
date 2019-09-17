@@ -12,58 +12,59 @@ WindowManager:
         on_press: pop.dismiss()
 
 <LoginScreen>:
-    name: "LogIn"
+    name: 'LogIn'
     GridLayout:
         rows: 2
         GridLayout:
             rows: 2
-            Label:
-                text: "Log In"
+            Image:
+                source: 'logo.png'
+                size: self.texture_size
             GridLayout:
                 cols: 3
                 Label:
-                    text: "Name: "
+                    text: 'Name: '
                 TextInput:
                     id: username
                     multiline: False
                 Label:
-                    text: " "
+                    text: ' '
                 Label:
-                    text: "Password: "
+                    text: 'Password: '
                 TextInput:
                     id: password
                     multiline: False
                     password: True
                 Label:
-                    text: " "
+                    text: ' '
 
-        RelativeLayout:
-            Button:
-                text: "Submit"
-                size_hint_y: None
-                size_hint_x: None
-                height: 50
-                width: 75
-                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                on_press: root.login()
-
+        BoxLayout:
+            RelativeLayout:
+                Button:
+                    text: "Submit"
+                    size_hint_y: None
+                    size_hint_x: None
+                    height: 50
+                    width: 75
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+                    on_press: root.login()
 
 <OrderScreen>:
-    name: "order"
+    name: 'order'
     GridLayout:
         rows: 2
         BoxLayout:
-            orientation: "horizontal"
+            orientation: 'horizontal'
             size_hint_y: None
             height: 50
             Label:
                 size_hint_x: None
                 pos_hint: {'left': 1}
-                text: "Tables"
+                text: 'Tables'
             Label:
-                text: "Coffee"
+                text: 'Coffee'
             Label:
-                text: "Pastries"
+                text: 'Pastries'
         GridLayout:
             cols: 4
             spacing: 20
@@ -73,28 +74,28 @@ WindowManager:
                 size_hint_x: None
                 width: 75
                 Button:
-                    text: "Table 1"
+                    text: 'Table 1'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 2"
+                    text: 'Table 2'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 3"
+                    text: 'Table 3'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 4"
+                    text: 'Table 4'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 5"
+                    text: 'Table 5'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 6"
+                    text: 'Table 6'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 7"
+                    text: 'Table 7'
                     on_press: root.set_table(self.text)
                 Button:
-                    text: "Table 8"
+                    text: 'Table 8'
                     on_press: root.set_table(self.text)
 
             GridLayout:
@@ -102,28 +103,28 @@ WindowManager:
                 rows: 8
                 spacing: 5
                 Button:
-                    text: "Espresso"
+                    text: 'Espresso'
                     on_press: root.add_to_order(self.text, 3.50)
                 Button:
-                    text: "French Press"
+                    text: 'French Press'
                     on_press: root.add_to_order(self.text, 3.50)
                 Button:
-                    text: "Pour Over"
+                    text: 'Pour Over'
                     on_press: root.add_to_order(self.text, 3.5)
                 Button:
-                    text: "Drip"
+                    text: 'Drip'
                     on_press: root.add_to_order(self.text, 2.5)
                 Button:
-                    text: "Latte"
+                    text: 'Latte'
                     on_press: root.add_to_order(self.text, 4)
                 Button:
-                    text: "Americano"
+                    text: 'Americano'
                     on_press: root.add_to_order(self.text, 3.50)
                 Button:
-                    text: "Iced Coffee"
+                    text: 'Iced Coffee'
                     on_press: root.add_to_order(self.text, 3)
                 Button:
-                    text: "Cold Brew"
+                    text: 'Cold Brew'
                     on_press: root.add_to_order(self.text, 4)
 
             GridLayout:
@@ -131,32 +132,32 @@ WindowManager:
                 rows: 8
                 spacing: 5
                 Button:
-                    text: "Blueberry\nMuffin"
+                    text: 'Blueberry\nMuffin'
                     on_press: root.add_to_order(self.text, 3.50)
                 Button:
-                    text: "Apple\nMuffin"
+                    text: 'Apple\nMuffin'
                     on_press: root.add_to_order(self.text, 3.50)
                 Button:
-                    text: "Banana\nMuffin"
+                    text: 'Banana\nMuffin'
                     on_press: root.add_to_order(self.text, 3.50)
                 Button:
-                    text: "Bagel"
+                    text: 'Bagel'
                     on_press: root.add_to_order(self.text, 2.50)
                 Button:
-                    text: "Bagel w/\nCream Cheese"
+                    text: 'Bagel w/\nCream Cheese'
                     on_press: root.add_to_order(self.text, 3)
                 Button:
-                    text: "Croissant"
+                    text: 'Croissant'
                     on_press: root.add_to_order(self.text, 4)
                 Button:
                     background_color: 0, 0, 0, 0
-                    text: ""
+                    text: ''
                 Button:
-                    text: "Remove Last"
+                    text: 'Remove Last'
                     on_press: root.remove_last()
 
             BoxLayout:
-                orientation: "vertical"
+                orientation: 'vertical'
                 TextInput:
                     text: root.order_window
                 TextInput:
@@ -167,7 +168,7 @@ WindowManager:
                 Button:
                     size_hint_y: None
                     height: 35
-                    text: "Submit"
+                    text: 'Submit'
 
 
 
