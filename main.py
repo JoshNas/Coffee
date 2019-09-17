@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
-
+from kivy.properties import StringProperty, NumericProperty
 
 class SimplePopup(Popup):
     pass
@@ -21,7 +21,35 @@ class LoginScreen(Screen):
 
 
 class OrderScreen(Screen):
-    pass
+    order_window = StringProperty()
+    price_window = StringProperty()
+
+    def __init__(self, **kwargs):
+        super(OrderScreen, self).__init__(**kwargs)
+        self.table = ''
+        self.order = []
+        self.total = 0
+
+    def set_table(self, table):
+        self.table = table
+
+    def add_to_order(self, item, price):
+        item = item.replace('\n', ' ')
+        # allow for no table to be set for customers who will not be sitting
+        self.order.append((self.table, item, price))
+        self.order_window += f'{item} {price}\n\n'
+        self.total += price
+        self.price_window = str(self.total)
+        print(self.order)
+
+    def update_order(self):
+        for order in self.order:
+            for item in order:
+                self.order_window += str(item)
+                self.order_window += '\n'
+
+        print(self.order_window)
+
 
 
 class WindowManager(ScreenManager):

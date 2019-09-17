@@ -74,21 +74,28 @@ WindowManager:
                 width: 75
                 Button:
                     text: "Table 1"
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 2"
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 3"
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 4"
-
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 5"
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 6"
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 7"
+                    on_press: root.set_table(self.text)
                 Button:
                     text: "Table 8"
+                    on_press: root.set_table(self.text)
 
             GridLayout:
                 cols: 2
@@ -96,20 +103,28 @@ WindowManager:
                 spacing: 5
                 Button:
                     text: "Espresso"
+                    on_press: root.add_to_order(self.text, 3.50)
                 Button:
                     text: "French Press"
+                    on_press: root.add_to_order(self.text, 3.50)
                 Button:
                     text: "Pour Over"
+                    on_press: root.add_to_order(self.text, 3.5)
                 Button:
                     text: "Drip"
+                    on_press: root.add_to_order(self.text, 2.5)
                 Button:
                     text: "Latte"
+                    on_press: root.add_to_order(self.text, 4)
                 Button:
                     text: "Americano"
+                    on_press: root.add_to_order(self.text, 3.50)
                 Button:
                     text: "Iced Coffee"
+                    on_press: root.add_to_order(self.text, 3)
                 Button:
                     text: "Cold Brew"
+                    on_press: root.add_to_order(self.text, 4)
 
             GridLayout:
                 cols: 2
@@ -117,29 +132,35 @@ WindowManager:
                 spacing: 5
                 Button:
                     text: "Blueberry\nMuffin"
+                    on_press: root.add_to_order(self.text, 3.50)
                 Button:
                     text: "Apple\nMuffin"
+                    on_press: root.add_to_order(self.text, 3.50)
                 Button:
                     text: "Banana\nMuffin"
+                    on_press: root.add_to_order(self.text, 3.50)
                 Button:
                     text: "Bagel"
+                    on_press: root.add_to_order(self.text, 2.50)
                 Button:
                     text: "Bagel w/\nCream Cheese"
+                    on_press: root.add_to_order(self.text, 3)
                 Button:
                     text: "Croissant"
+                    on_press: root.add_to_order(self.text, 4)
                 Button:
                     background_color: 0, 0, 0, 0
                     text: ""
                 Button:
-                    background_color: 0, 0, 0, 0
-                    text: ""
+                    text: "Remove Last"
 
             BoxLayout:
                 orientation: "vertical"
                 TextInput:
-                    id: order
+                    text: root.order_window
                 TextInput:
                     id: total
+                    text: root.price_window
                     size_hint_y: None
                     height: 50
                 Button:
