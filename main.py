@@ -40,7 +40,6 @@ class OrderScreen(Screen):
         self.order_window += f'{item} {price}\n\n'
         self.total += price
         self.price_window = str(self.total)
-        print(self.order)
 
     def update_order(self):
         for order in self.order:
@@ -48,8 +47,13 @@ class OrderScreen(Screen):
                 self.order_window += str(item)
                 self.order_window += '\n'
 
-        print(self.order_window)
-
+    def remove_last(self):
+        removed = self.order.pop()
+        self.order_window = ''
+        for order in self.order:
+            self.order_window += f'{order[1]} {order[2]}\n\n'
+        self.total -= removed[2]
+        self.price_window = str(self.total)
 
 
 class WindowManager(ScreenManager):
