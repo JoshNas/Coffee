@@ -2,7 +2,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
-from kivy.properties import StringProperty, NumericProperty
+from kivy.properties import StringProperty
+import db
+
 
 class SimplePopup(Popup):
     pass
@@ -54,6 +56,18 @@ class OrderScreen(Screen):
             self.order_window += f'{order[1]} {order[2]}\n\n'
         self.total -= removed[2]
         self.price_window = str(self.total)
+
+    def submit(self):
+        db.create_order(self.order)
+        self.clear()
+        db.get_orders()
+
+    def clear(self):
+        self.order = []
+        self.total = 0
+        self.table = ''
+        self.order_window = ''
+        self.price_window = ''
 
 
 class WindowManager(ScreenManager):
