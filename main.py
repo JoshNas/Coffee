@@ -3,7 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 from kivy.properties import StringProperty
-import db
+from DatabaseFunctions import db
 
 
 class ErrorPopup(Popup):

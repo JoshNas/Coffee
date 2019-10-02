@@ -1,6 +1,5 @@
 import mysql.connector
-import credentials as cred
-
+from DatabaseFunctions import credentials as cred
 
 mydb = mysql.connector.connect(
     host="localhost",
